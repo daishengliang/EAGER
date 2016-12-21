@@ -16,6 +16,7 @@ There are two methods that one can choose from:
 ###1. Clone the twitter-api Repo
 ```
  git clone https://github.com/daishengliang/EAGER/
+ cd EAGER/twitter-api
 ```
 
 ###3. Install the following (Ubuntu or Linux)
@@ -34,7 +35,7 @@ cd twitter-api
 
 ###5. Create a local directory "data" and place all the output files in it
 ```
-makdir data
+mkdir data
 ```
 
 ###7. Select and run a program:
