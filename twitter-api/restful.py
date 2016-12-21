@@ -1,13 +1,7 @@
 import numpy as np
 import pandas as pd
 import tweepy
-import matplotlib.pyplot as plt
 import argparse
-import ipywidgets as wgt
-from IPython.display import display
-from sklearn.feature_extraction.text import CountVectorizer
-import re
-from datetime import datetime
 
 
 def parse_args():
@@ -33,21 +27,7 @@ def parse_args():
 
     return args
 
-api_key = "tDTMJtC7sAz39hEj4rX5vb0sJ" # <---- Add your API Key
-api_secret = "5D9lXFpNr5Mpr8D4SQCak4pDH4NpzvyhmxXT4h5lxRYGqtfDHg" # <---- Add your API Secret
-access_token = "1196013206-P6T1RgOl9Dwq70RUNXrczzjSxsuQtrlKimQBGmn" # <---- Add your access token
-access_token_secret = "hBq8zik4WntPTB2hZEfSpVZNA0F7zAtj3mKjvb4GHyklz" # <---- Add your access token secret
 
-auth = tweepy.OAuthHandler(api_key, api_secret)
-auth.set_access_token(access_token, access_token_secret)
-
-api = tweepy.API(auth)
-
-results = []
-args = parse_args()
-query = [args.queries]
-for tweet in tweepy.Cursor(api.search, q=query).items(args.num_of_tweets):
-    results.append(tweet)
 
 def process_results(results):
     id_list = [tweet.id for tweet in results]
@@ -94,13 +74,29 @@ def process_results(results):
 def main(argv=None):
     """This is the main function.
     
-    Read the data from features file and responses file.
-    Use selectKBest in sklearn to select the k best features.
-    
     Parameters:
         argv (list, optional, default: None): argument list
     If argv is None it is set to sys.argv.
     """
-data_set = process_results(results)
-data_set.to_csv(args.output_file, index = False)
-print("Finish!")
+    api_key = "tDTMJtC7sAz39hEj4rX5vb0sJ" # <---- Add your API Key
+    api_secret = "5D9lXFpNr5Mpr8D4SQCak4pDH4NpzvyhmxXT4h5lxRYGqtfDHg" # <---- Add your API Secret
+    access_token = "1196013206-P6T1RgOl9Dwq70RUNXrczzjSxsuQtrlKimQBGmn" # <---- Add your access token
+    access_token_secret = "hBq8zik4WntPTB2hZEfSpVZNA0F7zAtj3mKjvb4GHyklz" # <---- Add your access token secret
+
+    auth = tweepy.OAuthHandler(api_key, api_secret)
+    auth.set_access_token(access_token, access_token_secret)
+
+    api = tweepy.API(auth)
+
+    results = []
+    args = parse_args()
+    query = [args.queries]
+    for tweet in tweepy.Cursor(api.search, q=query).items(args.num_of_tweets):
+    results.append(tweet)
+
+    data_set = process_results(results)
+    data_set.to_csv(args.output_file, index = False)
+    print("Finish!")
+
+if __name__=="__main__":
+    sys.exit(main())
