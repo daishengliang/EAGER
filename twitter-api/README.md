@@ -13,10 +13,10 @@ There are two methods that one can choose from:
 * * * 
 ## How to run this program
 * * * 
-###1. Clone the twitter-api Repo
+###1. Clone the EAGER Repo
 ```
  git clone https://github.com/daishengliang/EAGER/
- cd EAGER/twitter-api
+ cd EAGER
 ```
 
 ###3. Install the following (Ubuntu or Linux)
