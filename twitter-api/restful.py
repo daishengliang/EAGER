@@ -18,7 +18,7 @@ import numpy as np
 import pandas as pd
 import tweepy
 import argparse
-
+import sys
 
 def parse_args():
     """Parse the arguments.
@@ -104,7 +104,7 @@ def main(argv=None):
     args = parse_args()
     query = [args.queries]
     for tweet in tweepy.Cursor(api.search, q=query).items(args.num_of_tweets):
-    results.append(tweet)
+        results.append(tweet)
 
     data_set = process_results(results)
     data_set.to_csv(args.output_file, index = False)
