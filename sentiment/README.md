@@ -1,16 +1,16 @@
 # EAGER Twitter Sentiment Analysis
 This is the EAGER sentiment analysis for social media data.
 
-This program use Naive Bayes/Support Vector Machine to predict the sentiment of crawled tweets.
+This program use Naive Bayes/Support Vector Machine(to do) to predict the sentiment of crawled tweets.
 
 
 * * * 
 ## How to run this program
 * * * 
-###1. Clone the twitter-api Repo
+###1. Clone the EAGER Repo
 ```
  git clone https://github.com/daishengliang/EAGER/
- cd EAGER/sentiment
+ cd EAGER/
 ```
 
 ###3. Install the following (Ubuntu or Linux)
@@ -21,7 +21,7 @@ This program use Naive Bayes/Support Vector Machine to predict the sentiment of 
 ```
 
 
-###4. Change directory to twitter-api
+###4. Change directory to sentiment
 ```
 cd sentiment
 ```
