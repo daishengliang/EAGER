@@ -1,3 +1,19 @@
+#!/usr/bin/env python3
+
+
+# -*- coding: utf-8 -*-
+"""
+This script uses Twitter RESTful API to collect the most recent tweets.
+
+Command line: python restful.py -q "queries" -n 1000 -of "data/filename.csv"
+
+Arguments:
+
+    -q|--queries|str|required||User provided queries
+    -n|--num_of_tweets|int|required||the number of tweets
+    -of|--output_file|str|required, default: None||the output file for the tweets
+"""
+
 import numpy as np
 import pandas as pd
 import tweepy
@@ -73,10 +89,6 @@ def process_results(results):
 
 def main(argv=None):
     """This is the main function.
-    
-    Parameters:
-        argv (list, optional, default: None): argument list
-    If argv is None it is set to sys.argv.
     """
     api_key = "tDTMJtC7sAz39hEj4rX5vb0sJ" # <---- Add your API Key
     api_secret = "5D9lXFpNr5Mpr8D4SQCak4pDH4NpzvyhmxXT4h5lxRYGqtfDHg" # <---- Add your API Secret

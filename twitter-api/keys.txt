@@ -1,0 +1,10 @@
+api_key = "tDTMJtC7sAz39hEj4rX5vb0sJ" # <---- Add your API Key
+api_secret = "5D9lXFpNr5Mpr8D4SQCak4pDH4NpzvyhmxXT4h5lxRYGqtfDHg" # <---- Add your API Secret
+access_token = "1196013206-P6T1RgOl9Dwq70RUNXrczzjSxsuQtrlKimQBGmn" # <---- Add your access token
+access_token_secret = "hBq8zik4WntPTB2hZEfSpVZNA0F7zAtj3mKjvb4GHyklz" # <---- Add your access token secret
+
+api_key = "U9Pd82RTy497vbwh5dWZoCXVc" # <---- Add your API Key
+api_secret = "tWWhHzXcjbe7bXYzZPsto2lmd3MyCcaHE0pQsynZsbwpd4nNPS" # <---- Add your API Secret
+access_token = "746023013926207488-qFIlsqdrmJvYytvZN8jSQvipckcEWYd" # <---- Add your access token
+access_token_secret = "ziHTqopeRnSTHqhkZlS7Z5dt97Z86673LfKqMZPGIsble" # <---- Add your access token secret
+
