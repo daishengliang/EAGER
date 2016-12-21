@@ -2,12 +2,36 @@ import numpy as np
 import pandas as pd
 import tweepy
 import matplotlib.pyplot as plt
-import pymongo
+import argparse
 import ipywidgets as wgt
 from IPython.display import display
 from sklearn.feature_extraction.text import CountVectorizer
 import re
 from datetime import datetime
+
+
+def parse_args():
+    """Parse the arguments.
+    Parse the command line arguments/options using the argparse module
+    and return the parsed arguments (as an argparse.Namespace object,
+    as returned by argparse.parse_args()).
+    Returns:
+        argparse.Namespace: the parsed arguments
+    """
+
+    # Parse command line options/arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-q', '--queries', required=True,
+                        help='User provided queries')
+                   
+    parser.add_argument('-n', '--num_of_tweets', required=True, type=int)
+
+    parser.add_argument('-of', '--output_file', required=True)
+
+
+    args = parser.parse_args()
+
+    return args
 
 api_key = "tDTMJtC7sAz39hEj4rX5vb0sJ" # <---- Add your API Key
 api_secret = "5D9lXFpNr5Mpr8D4SQCak4pDH4NpzvyhmxXT4h5lxRYGqtfDHg" # <---- Add your API Secret
@@ -20,8 +44,9 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 results = []
-query = ["earthquake"]
-for tweet in tweepy.Cursor(api.search, q=query).items(1000):
+args = parse_args()
+query = [args.queries]
+for tweet in tweepy.Cursor(api.search, q=query).items(args.num_of_tweets):
     results.append(tweet)
 
 def process_results(results):
@@ -64,6 +89,18 @@ def process_results(results):
     data_set["user_coordinates"] = [tweet.coordinates for tweet in results]
 
     return data_set
+
+
+def main(argv=None):
+    """This is the main function.
+    
+    Read the data from features file and responses file.
+    Use selectKBest in sklearn to select the k best features.
+    
+    Parameters:
+        argv (list, optional, default: None): argument list
+    If argv is None it is set to sys.argv.
+    """
 data_set = process_results(results)
-data_set.to_csv("earthquake nov 10.csv")
+data_set.to_csv(args.output_file, index = False)
 print("Finish!")
