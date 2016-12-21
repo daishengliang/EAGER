@@ -15,7 +15,7 @@ There are two methods that one can choose from:
 * * * 
 ###1. Clone the twitter-api Repo
 ```
- git clone https://github.com/daishengliang/EAGER/tree/master/twitter-api
+ git clone https://github.com/daishengliang/EAGER/
 ```
 
 ###3. Install the following (Ubuntu or Linux)
@@ -41,4 +41,5 @@ makdir data
 ```
 python restful.py -q "tornado illinois" -n 1000 -of data/tornado_at_illinois.csv
 ```
+where "-q" represents the queries, "-n" represents the number of tweets one would collect and "-of" represents the location and name of output file.
 
